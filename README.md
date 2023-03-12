@@ -1,0 +1,1 @@
+﻿ChatGPT APIとWhisper API（ともにOpenAI社）を活用したAIアシスタントです。
