@@ -13,8 +13,11 @@ namespace WhisperAPI
     {
         private readonly string _apiKey;
         private const string ApiUrl = "https://api.openai.com/v1/audio/transcriptions";
-        private const string FilePath = "path/to/sampleFile";
         private const string ModelName = "whisper-1";
+        
+        // 以下はローカルファイルから音源を読み取る場合のみ設定
+        // RequestAsyncメソッド内で利用
+        private const string FilePath = "path/to/sampleFile";
         
         public WhisperAPIConnection(string apiKey)
         {

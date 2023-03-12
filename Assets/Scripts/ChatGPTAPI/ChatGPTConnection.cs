@@ -71,6 +71,7 @@ namespace ChatGPTAPI
             {
                 var responseString = request.downloadHandler.text;
                 var responseObject = JsonUtility.FromJson<ChatGPTResponseModel>(responseString);
+                Debug.Log("ChatGPT: " + responseObject.choices[0].message.role);
                 Debug.Log("ChatGPT: " + responseObject.choices[0].message.content);
                 _messageList.Add(responseObject.choices[0].message);
                 request.Dispose();
