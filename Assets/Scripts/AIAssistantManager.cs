@@ -8,6 +8,7 @@ using WhisperAPI;
 using WhisperAPI.Models;
 using ChatGPTAPI;
 using ChatGPTAPI.Models;
+using ChatGPTAPI.Config;
 
 public class AIAssistantManager : MonoBehaviour
 {
@@ -16,8 +17,12 @@ public class AIAssistantManager : MonoBehaviour
     [SerializeField] private Text recordingText;
     [SerializeField] private Text outputText;
     
+    [Header("AIの人格設定")]
+    [SerializeField] private SystemProfile systemProfile;
+    [SerializeField] private UserProfile userProfile;
+    
     private AudioClip _recordedClip;
-    private const string MicName = "マイク (USB-LCS Audio)"; //マイクデバイスの名前
+    private const string MicName = "マイク (4- USB-LCS Audio)"; //マイクデバイスの名前
     private const int SamplingFrequency = 44100; //サンプリング周波数
     private const int MaxTimeSeconds = 10; //最大録音時間[s]
     
@@ -31,9 +36,13 @@ public class AIAssistantManager : MonoBehaviour
     
     void Start()
     {
+        // ShowAllMicDevices();
+        
         _token = _cts.Token;
         _whisperConnection = new(Constants.API_KEY);
         _chatConnection = new(Constants.API_KEY);
+        _chatConnection.AddSystemProfile(systemProfile);
+        _chatConnection.AddUserProfile(userProfile);
         
         startButton.onClick.AddListener(StartRecording);
         stopButton.onClick.AddListener(StopRecording);

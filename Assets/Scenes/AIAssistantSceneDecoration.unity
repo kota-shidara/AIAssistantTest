@@ -1932,6 +1932,8 @@ MonoBehaviour:
   stopButton: {fileID: 498774465}
   recordingText: {fileID: 1724429040}
   outputText: {fileID: 1153628020}
+  systemProfile: {fileID: 11400000, guid: ccdb28d92ec3cd7459998b32f2bb2649, type: 2}
+  userProfile: {fileID: 11400000, guid: 1bc37b79f22e2974eb32795d85e6267a, type: 2}
 --- !u!4 &1906271334
 Transform:
   m_ObjectHideFlags: 0
